@@ -71,7 +71,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public void OnClickPlayButton(){
         if (PhotonNetwork.IsMasterClient)
         {
-            PhotonNetwork.LoadLevel("GameSc");
+            PhotonNetwork.LoadLevel("Multiplayer");
         }
     }
 
