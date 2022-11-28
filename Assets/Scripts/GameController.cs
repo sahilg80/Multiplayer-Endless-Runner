@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
     PlayerView _playerView;
     [SerializeField]
     GameObject playerPrefab;
+    [SerializeField]
+    GameObject mapTile;
 
     PlayerController _playerController;
     public PlayerController playerControl{
@@ -33,7 +35,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _playerController.SpawnPlayerObject(playerPrefab);
+        _playerController.SpawnPlayerObject(playerPrefab,mapTile);
     }
 
     // Update is called once per frame

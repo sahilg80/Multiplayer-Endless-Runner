@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -210,7 +210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerView: {fileID: 1248153694}
-  playerPrefab: {fileID: 6511232568217898322, guid: 25afba002a04caf438fc8882d054aa94, type: 3}
+  playerPrefab: {fileID: 5111109175733507417, guid: 870bb1a59a7c6d3498ce469b2e8d66fc, type: 3}
+  mapTile: {fileID: 5488722051585666007, guid: 423f53e992aa0a74d9935a4d22c1f4d9, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,6 +412,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1046379599}
   - component: {fileID: 1046379600}
+  - component: {fileID: 1046379601}
   m_Layer: 0
   m_Name: MapManager
   m_TagString: Untagged
@@ -446,6 +448,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mapPrefab: {fileID: 5488722051585666007, guid: 423f53e992aa0a74d9935a4d22c1f4d9, type: 3}
   _obstaclePrefab: {fileID: 1213259586259904615, guid: 8b8b68ef50f188449b59e0918479575c, type: 3}
+--- !u!114 &1046379601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046379598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 2
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1248153692
 GameObject:
   m_ObjectHideFlags: 0

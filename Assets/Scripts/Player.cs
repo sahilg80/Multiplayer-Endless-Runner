@@ -4,51 +4,66 @@ using UnityEngine;
 
 namespace endlessrunner
 {
-public class Player : MonoBehaviour
-{
-    [SerializeField]
-    float speed;
-    [SerializeField]
-    float xAxisMoveVal;
-    [SerializeField]
-    float jumpForce;
-    [SerializeField]
-    float _gravityValue;
-
-    public bool isMoving{get; set;}
-    CharacterController controller;
-    
-    Vector3 direction;
-    // Start is called before the first frame update
-    void Start()
+    public class Player : MonoBehaviour
     {
-        controller = GetComponent<CharacterController>();
-        direction = transform.forward;
-    }
+        [SerializeField]
+        float speed;
+        [SerializeField]
+        float xAxisMoveVal;
+        [SerializeField]
+        float jumpForce;
+        [SerializeField]
+        float _gravityValue;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (isMoving)
+        public bool isMoving { get; set; }
+        CharacterController controller;
+
+        Vector3 direction;
+        float maxRightVal;
+        float maxLeftVal;
+        // Start is called before the first frame update
+        void Start()
         {
-            if (!controller.isGrounded)
+            controller = GetComponent<CharacterController>();
+            direction = transform.forward;
+            maxRightVal = 0.5f;
+            maxLeftVal = -0.5f;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (isMoving)
             {
-                direction.y += _gravityValue*Time.deltaTime;
+                if (!controller.isGrounded)
+                {
+                    direction.y += _gravityValue * Time.deltaTime;
+                }
+
+                controller.Move(direction * speed * Time.deltaTime);
             }
-            controller.Move(direction * speed * Time.deltaTime);
         }
-    }
 
-    public void ChangeDirection(int dir){
-        direction = direction + transform.right*dir*xAxisMoveVal;
-    }
-
-    public void Jump(){
-        if (controller.isGrounded)
+        public void ChangeDirection(int dir)
         {
-            direction.y = jumpForce;
+            if (direction.x < maxLeftVal)
+            {
+                direction.x = maxLeftVal;
+            }
+            else if (direction.x > maxRightVal)
+            {
+                direction.x = maxRightVal;
+            }
+            direction = direction + transform.right * dir * xAxisMoveVal;
         }
-    }
 
-}
+        public void Jump()
+        {
+            if (controller.isGrounded)
+            {
+                direction.y = jumpForce;
+            }
+        }
+
+    }
 }
