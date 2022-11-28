@@ -31,7 +31,7 @@ public class PlayerController
         
         while (Physics.CheckSphere(spawnPos, 0.25f, LayerMask.GetMask("Player")))
         {
-            Debug.Log("hit wall");
+            Debug.Log("hit networked player");
             xPos = UnityEngine.Random.Range(mapTile.transform.position.x - mapTile.transform.localScale.x / 2 + 1f, mapTile.transform.position.x + mapTile.transform.localScale.x / 2 - 1f);
             spawnPos= new Vector3(xPos, playerPrefab.transform.position.y, 0);
         }
@@ -39,8 +39,6 @@ public class PlayerController
         _playerModel.playerObject = PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(xPos, playerPrefab.transform.position.y, 0), Quaternion.identity);
         _playerView.SetCameraFollow(_playerModel.playerObject);
     }
-
-    
 
     public void ControlPlayerMovement()
     {
