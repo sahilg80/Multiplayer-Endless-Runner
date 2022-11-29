@@ -29,14 +29,14 @@ public class PlayerController
 
         Vector3 spawnPos= new Vector3(xPos, playerPrefab.transform.position.y, 0);
         
-        while (Physics.CheckSphere(spawnPos, 0.25f, LayerMask.GetMask("Player")))
+        while (Physics.CheckSphere(spawnPos, 0.35f, 1<< LayerMask.NameToLayer("Player")))
         {
-            Debug.Log("hit networked player");
+            Debug.Log("hit player ");
             xPos = UnityEngine.Random.Range(mapTile.transform.position.x - mapTile.transform.localScale.x / 2 + 1f, mapTile.transform.position.x + mapTile.transform.localScale.x / 2 - 1f);
             spawnPos= new Vector3(xPos, playerPrefab.transform.position.y, 0);
         }
         
-        _playerModel.playerObject = PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(xPos, playerPrefab.transform.position.y, 0), Quaternion.identity);
+        _playerModel.playerObject = PhotonNetwork.Instantiate(playerPrefab.name, spawnPos, Quaternion.identity);
         _playerView.SetCameraFollow(_playerModel.playerObject);
     }
 

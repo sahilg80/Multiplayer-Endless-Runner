@@ -11,7 +11,7 @@ public class CameraFollower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public void SetOffsetValue(GameObject target)
@@ -23,7 +23,10 @@ public class CameraFollower : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        Vector3 newPos = new Vector3(transform.position.x, transform.position.y, _targetPlayer.transform.position.z-offsetPos.z);
-        transform.position = Vector3.Lerp(transform.position, newPos, speed*Time.deltaTime);
+        if (_targetPlayer != null)
+        {
+            Vector3 newPos = new Vector3(transform.position.x, transform.position.y, _targetPlayer.transform.position.z - offsetPos.z);
+            transform.position = Vector3.Lerp(transform.position, newPos, speed * Time.deltaTime);
+        }
     }
 }

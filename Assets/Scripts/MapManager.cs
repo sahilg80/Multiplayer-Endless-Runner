@@ -67,7 +67,6 @@ public class MapManager : MonoBehaviourPunCallbacks,IInRoomCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            print("now i'm master");
             InvokeRepeating("SpawnInfiniteMapTiles",0.5f,2.5f);
         }
     }
